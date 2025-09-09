@@ -1,7 +1,5 @@
 # Vegas Glow - Free Social Casino Games 🎰
 
-![Vegas Glow Banner](https://via.placeholder.com/800x200/0f1428/ffffff?text=Vegas+Glow+-+Free+Social+Casino+Games)
-
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yourusername/vegas-glow/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/yourusername/vegas-glow)](https://github.com/yourusername/vegas-glow/issues)
 [![GitHub stars](https://img.shields.io/github/stars/yourusername/vegas-glow)](https://github.com/yourusername/vegas-glow/stargazers)
