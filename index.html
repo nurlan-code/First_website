@@ -30,65 +30,6 @@
             transition: background 0.5s ease;
         }
 
-        .page-section {
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            min-height: 80vh;
-            padding: 1rem;
-        }
-
-        .page-section.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .back-home {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
-        }
-
-        .back-home.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-home:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 0, 128, 0.5);
-        }
-
-        .neon-glow {
-            text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color);
-            animation: neonPulse 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes neonPulse {
-            0% { text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color); }
-            100% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
-        }
-
-        .blue-neon {
-            text-shadow: 0 0 5px var(--secondary-color), 0 0 10px var(--secondary-color), 0 0 15px var(--secondary-color);
-        }
-
         .bg-animation {
             position: fixed;
             top: 0;
@@ -106,6 +47,20 @@
         @keyframes bgMove {
             0%, 100% { transform: scale(1) rotate(0deg); }
             50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color);
+            animation: neonPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            0% { text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color); }
+            100% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
+        }
+
+        .blue-neon {
+            text-shadow: 0 0 5px var(--secondary-color), 0 0 10px var(--secondary-color), 0 0 15px var(--secondary-color);
         }
 
         header {
@@ -150,7 +105,8 @@
             position: relative;
         }
 
-        .nav-menu li a:hover {
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
             color: var(--secondary-color);
             text-shadow: 0 0 10px var(--secondary-color);
         }
@@ -166,7 +122,8 @@
             transition: width 0.3s ease;
         }
 
-        .nav-menu li a:hover::after {
+        .nav-menu li a:hover::after,
+        .nav-menu li a.active::after {
             width: 100%;
         }
 
@@ -206,6 +163,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
+        }
+
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero {
@@ -325,190 +288,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        .features-section {
-            padding: 2rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .feature-item {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-
-        .feature-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .feature-item p {
-            font-size: 0.9rem;
-            line-height: 1.4;
-            opacity: 0.8;
-        }
-
-        .about-section {
-            padding: 2rem 0;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            line-height: 1.5;
-            font-size: 0.9rem;
-        }
-
-        .developer-info {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .developer-info h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .developer-info p {
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-        }
-
-        .about-image {
-            text-align: center;
-            order: -1;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .contact-section {
-            padding: 2rem 0;
-        }
-
-        .contact-form {
-            max-width: 100%;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            color: var(--text-color);
-            font-family: inherit;
-            font-size: 0.9rem;
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            color: var(--text-color);
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.3);
-        }
-
         footer {
             background: rgba(0, 0, 0, 0.9);
             border-top: 2px solid var(--primary-color);
@@ -596,31 +375,9 @@
                 gap: 2rem;
             }
             
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-            }
-            
             .footer-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 2rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-            }
-            
-            .about-image {
-                order: 0;
-            }
-            
-            .contact-form {
-                max-width: 600px;
-            }
-            
-            .submit-btn {
-                width: auto;
             }
         }
 
@@ -651,12 +408,7 @@
                 padding: 15px 40px;
             }
             
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .game-icon,
-            .feature-icon {
+            .game-icon {
                 font-size: 3rem;
             }
         }
@@ -725,37 +477,6 @@
             .game-card p {
                 font-size: 0.8rem;
             }
-            
-            .feature-item {
-                padding: 1rem;
-            }
-            
-            .feature-icon {
-                font-size: 2rem;
-            }
-            
-            .about-text h2 {
-                font-size: 1.8rem;
-            }
-            
-            .developer-info {
-                padding: 1rem;
-            }
-            
-            .contact-form {
-                padding: 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .back-home {
-                width: 45px;
-                height: 45px;
-                bottom: 15px;
-                right: 15px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -776,41 +497,21 @@
                 font-size: 0.85rem;
             }
             
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .game-card,
-            .feature-item,
-            .developer-info,
-            .contact-form {
-                padding: 0.8rem;
-            }
-            
-            .social-links a {
-                width: 30px;
-                height: 30px;
-            }
-            
-            .responsible-gaming {
+            .game-card {
                 padding: 0.8rem;
             }
         }
 
         @media (hover: none) and (pointer: coarse) {
             .game-card:hover,
-            .feature-item:hover,
             .play-now-btn:hover,
-            .cta-button:hover,
-            .submit-btn:hover {
+            .cta-button:hover {
                 transform: none;
             }
             
             .game-card:active,
-            .feature-item:active,
             .play-now-btn:active,
-            .cta-button:active,
-            .submit-btn:active {
+            .cta-button:active {
                 transform: scale(0.95);
             }
         }
@@ -821,14 +522,14 @@
     
     <header>
         <div class="header-container">
-            <a href="#" class="logo neon-glow">Vegas Glow</a>
+            <a href="index.html" class="logo neon-glow">Vegas Glow</a>
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#games">Games</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             <button class="play-now-btn">Play Now</button>
@@ -837,163 +538,30 @@
     </header>
 
     <main>
-        <section id="home" class="page-section active">
+        <section class="hero-section">
             <div class="container">
                 <div class="hero">
                     <h1 class="neon-glow">Welcome to the World of Free Social Casino-Style Games!</h1>
                     <p>Your exciting adventure starts here — no deposits, no real money, and no stress. Just you, vibrant slot-style games, fun mini-challenges, and endless entertainment! Whether you're here to relax or compete, our platform gives you the full thrill of a casino — with zero financial risk.</p>
-                    <button class="cta-button" onclick="showSection('games')">Start Playing Now</button>
+                    <button class="cta-button" onclick="window.location.href='games.html'">Start Playing Now</button>
                 </div>
 
                 <div class="games-showcase">
-                    <div class="game-card" onclick="showSection('games')">
+                    <div class="game-card" onclick="window.location.href='games.html'">
                         <div class="game-icon slot-animation">🎰</div>
                         <h3 class="blue-neon">Classic Slots</h3>
                         <p>Experience the thrill of traditional slot machines with modern twists and exciting bonus rounds.</p>
                     </div>
-                    <div class="game-card" onclick="showSection('games')">
+                    <div class="game-card" onclick="window.location.href='games.html'">
                         <div class="game-icon">🃏</div>
                         <h3 class="blue-neon">Card Games</h3>
                         <p>Test your skills with blackjack, poker, and other card games in our risk-free environment.</p>
                     </div>
-                    <div class="game-card" onclick="showSection('games')">
+                    <div class="game-card" onclick="window.location.href='games.html'">
                         <div class="game-icon">🎲</div>
                         <h3 class="blue-neon">Table Games</h3>
                         <p>Roll the dice and try your luck with craps, roulette, and other classic casino table games.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="games" class="page-section">
-            <div class="container">
-                <h2 class="section-title neon-glow">Our Games</h2>
-                <p style="text-align: center; margin-bottom: 2rem; font-size: 0.9rem;">Explore our exciting collection of social casino games. All games are free to play with no real money involved.</p>
-                
-                <div class="games-showcase">
-                    <div class="game-card">
-                        <div class="game-icon">💰</div>
-                        <h3 class="blue-neon">Jackpot Slots</h3>
-                        <p>Try your luck at our progressive jackpot slots for a chance to win big virtual prizes!</p>
-                    </div>
-                    <div class="game-card">
-                        <div class="game-icon">🎯</div>
-                        <h3 class="blue-neon">Roulette</h3>
-                        <p>Place your bets on red or black in our realistic roulette simulation.</p>
-                    </div>
-                    <div class="game-card">
-                        <div class="game-icon">♠️</div>
-                        <h3 class="blue-neon">Blackjack</h3>
-                        <p>Challenge the dealer in our blackjack tables and try to get 21.</p>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <p class="blue-neon">More games coming soon!</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="page-section">
-            <div class="container">
-                <h2 class="section-title neon-glow">Why Choose Vegas Glow?</h2>
-                
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">🔒</div>
-                        <h3>100% Risk-Free</h3>
-                        <p>No real money involved. Enjoy the thrill of casino games without any financial risk.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🎮</div>
-                        <h3>Variety of Games</h3>
-                        <p>From slots to table games, we offer a wide selection of casino-style entertainment.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">📱</div>
-                        <h3>Mobile Friendly</h3>
-                        <p>Play on any device - desktop, tablet, or mobile. Our games work seamlessly everywhere.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🏆</div>
-                        <h3>Social Competition</h3>
-                        <p>Compete with friends and other players on our leaderboards and tournaments.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🔄</div>
-                        <h3>Regular Updates</h3>
-                        <p>We constantly add new games and features to keep your experience fresh and exciting.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🌐</div>
-                        <h3>Global Community</h3>
-                        <p>Join players from around the world in our vibrant social casino community.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="page-section">
-            <div class="container">
-                <h2 class="section-title neon-glow">About Us</h2>
-                
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>Welcome to Vegas Glow</h2>
-                        <p>Vegas Glow is a free social casino platform designed to provide entertainment without the risks associated with real money gambling. Our mission is to offer a fun, safe environment where players can enjoy casino-style games without financial pressure.</p>
-                        <p>All our games are purely for entertainment purposes and use virtual currency only. We promote responsible gaming and encourage our players to enjoy our platform as a form of leisure, not as a way to make money.</p>
-                        
-                        <div class="developer-info">
-                            <h3>About the Developer</h3>
-                            <p>This website was created by <strong>Məmmədli Nurlan</strong>, a frontend developer passionate about creating engaging, user-friendly web experiences.</p>
-                            <p>Email: nurlanmammadli2@gmail.com</p>
-                            
-                            <div class="social-links">
-                                <a href="https://www.linkedin.com/in/nurlan-məmmədli-b6a55b308" title="LinkedIn">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="mailto:nurlanmammadli2@gmail.com" title="Email">
-                                    <i class="far fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Casino Games">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="page-section">
-            <div class="container">
-                <h2 class="section-title neon-glow">Contact Us</h2>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
                 </div>
             </div>
         </section>
@@ -1005,21 +573,21 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home" onclick="showSection('home')">Home</a></li>
-                        <li><a href="#games" onclick="showSection('games')">Games</a></li>
-                        <li><a href="#features" onclick="showSection('features')">Features</a></li>
-                        <li><a href="#about" onclick="showSection('about')">About Us</a></li>
-                        <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Game Categories</h3>
                     <ul class="footer-links">
-                        <li><a href="#games" onclick="showSection('games')">Slot Games</a></li>
-                        <li><a href="#games" onclick="showSection('games')">Card Games</a></li>
-                        <li><a href="#games" onclick="showSection('games')">Table Games</a></li>
-                        <li><a href="#games" onclick="showSection('games')">Jackpot Games</a></li>
-                        <li><a href="#games" onclick="showSection('games')">Tournaments</a></li>
+                        <li><a href="games.html">Slot Games</a></li>
+                        <li><a href="games.html">Card Games</a></li>
+                        <li><a href="games.html">Table Games</a></li>
+                        <li><a href="games.html">Jackpot Games</a></li>
+                        <li><a href="games.html">Tournaments</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1056,37 +624,7 @@
         </div>
     </footer>
 
-    <div class="back-home" id="backHome" onclick="showSection('home')">
-        <i class="fas fa-home"></i>
-    </div>
-
     <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-            
-            const backHome = document.getElementById('backHome');
-            if (sectionId === 'home') {
-                backHome.classList.remove('show');
-            } else {
-                backHome.classList.add('show');
-            }
-            
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.remove('active');
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            updateBackgroundTheme(sectionId);
-        }
-
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
 
@@ -1094,57 +632,21 @@
             navMenu.classList.toggle('active');
         });
 
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', (e) => {
+        document.querySelectorAll('.play-now-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const href = link.getAttribute('href');
-                const sectionId = href.substring(1); 
-                showSection(sectionId);
+                const originalText = btn.textContent;
+                btn.textContent = 'Loading Game... 🎮';
+                btn.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
+                
+                setTimeout(() => {
+                    btn.textContent = 'Coming Soon! 🚀';
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                    }, 2000);
+                }, 1500);
             });
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject') || 'Contact Form Submission';
-            const message = formData.get('message');
-            
-            if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Sending... ⏳';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Thank you for your message! We\'ll get back to you soon.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-
-        let ticking = false;
-        function updateParallax() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.bg-animation');
-            const speed = scrolled * 0.5;
-            parallax.style.transform = `translateY(${speed}px)`;
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
         });
 
         function typeWriter(element, text, speed = 100) {
@@ -1180,9 +682,6 @@
             @keyframes float {
                 0%, 100% { transform: translateY(0px); }
                 50% { transform: translateY(-10px); }
-            }
-            @keyframes ripple {
-                to { transform: scale(4); opacity: 0; }
             }
         `;
         
@@ -1228,51 +727,12 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.game-card, .feature-item, .stat-item').forEach(el => {
+        document.querySelectorAll('.game-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
-
-        document.querySelectorAll('.play-now-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const originalText = btn.textContent;
-                btn.textContent = 'Loading Game... 🎮';
-                btn.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
-                
-                setTimeout(() => {
-                    btn.textContent = 'Coming Soon! 🚀';
-                    setTimeout(() => {
-                        btn.textContent = originalText;
-                        btn.style.background = '';
-                    }, 2000);
-                }, 1500);
-            });
-        });
-
-        function updateBackgroundTheme(sectionId) {
-            const body = document.body;
-            body.className = ''; 
-            
-            switch(sectionId) {
-                case 'games':
-                    body.style.background = 'linear-gradient(135deg, #1a0a2e, #16213e, #0f4460)';
-                    break;
-                case 'features':
-                    body.style.background = 'linear-gradient(135deg, #2a0a1e, #26213e, #1f3460)';
-                    break;
-                case 'about':
-                    body.style.background = 'linear-gradient(135deg, #0a1a2e, #16343e, #0f6460)';
-                    break;
-                case 'contact':
-                    body.style.background = 'linear-gradient(135deg, #1a2a0e, #36213e, #4f3460)';
-                    break;
-                default:
-                    body.style.background = 'linear-gradient(135deg, #1a0a2e, #16213e, #0f3460)';
-            }
-        }
     </script>
 </body>
 </html>
